@@ -16,7 +16,7 @@ public class Desktop extends JFrame {
 
     public Desktop(){
         themeManager = new ThemeManager();
-        widnowManager = new WindowManager();
+        windowManager = new WindowManager();
         setTitle("SimplyOS");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -47,11 +47,11 @@ public class Desktop extends JFrame {
     }
 
     private void addDesktopIcons(){
-        String[] apps = {"Filem Explorer", "Text Editor", "Calculator", "Terminal", "Paint", "Settings"};
+        String[] apps = {"File Explorer", "Text Editor", "Calculator", "Terminal", "Paint", "Settings"};
         int x = 20;
         int y = 20;
         for(String app : apps){
-            Desktop icon = new DesktopIcon(app, this, windowManager, themeManager);
+            DesktopIcon icon = new DesktopIcon(app, this, windowManager, themeManager);
             icon.setBounds(x, y, 80, 80);
             desktopPanel.add(icon);
             y += 100;

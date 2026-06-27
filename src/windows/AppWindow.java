@@ -32,7 +32,7 @@ public class AppWindow extends JPanel{
         titleBar.setPreferredSize(new Dimension(0, 32));
 
         JLabel titleLabel = new JLabel("  " + title);
-        titleLabel.setfont(new Font("Segoe UI", Font.BOLD, 13));
+        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 13));
         titleLabel.setForeground(themeManager.getTextColor());
 
         JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT, 2, 4));
@@ -64,7 +64,7 @@ public class AppWindow extends JPanel{
             }
         });
 
-        titleBar.addMouseMotionListener(new MouseMotionLIstener(){
+        titleBar.addMouseMotionListener(new MouseMotionAdapter(){
             public void mouseDragged(MouseEvent e){
                 if(!isMaximized){
                     Point current = SwingUtilities.convertPoint(titleBar, e.getPoint(), desktop);

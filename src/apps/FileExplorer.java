@@ -32,7 +32,7 @@ public class FileExplorer extends JPanel{
         backBtn.setBorderPainted(false);
         backBtn.setFocusPainted(false);
         backBtn.setPreferredSize(new Dimension(40, 35));
-        backbtn.addActionListener(e -> goBack());
+        backBtn.addActionListener(e -> goBack());
 
         pathLabel = new JLabel("  " + System.getProperty("user.home"));
         pathLabel.setFont(new Font("Segoe UI", Font.PLAIN, 12));
@@ -77,7 +77,7 @@ public class FileExplorer extends JPanel{
         fileList.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         fileList.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
-                if(e.getClickCount == 2){
+                if(e.getClickCount() == 2){
                     String selected = fileList.getSelectedValue();
                     if(selected != null){
                         File f = new File(currentDir, selected.replace("📁 ", "").replace("📄 ", ""));
@@ -91,7 +91,7 @@ public class FileExplorer extends JPanel{
 
         JScrollPane scrollPane = new JScrollPane(fileList);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
-        scrollPane.getViewport().setBackground(themeManager.getWIndowColor());
+        scrollPane.getViewport().setBackground(themeManager.getWindowColor());
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, quickAccess, scrollPane);
         splitPane.setDividerSize(1);
@@ -109,7 +109,7 @@ public class FileExplorer extends JPanel{
             return;
         }
         currentDir = dir;
-        pathlabel.setText("  " + dir.getAbsolutePath());
+        pathLabel.setText("  " + dir.getAbsolutePath());
         listModel.clear();
         File[] files = dir.listFiles();
         if(files == null){

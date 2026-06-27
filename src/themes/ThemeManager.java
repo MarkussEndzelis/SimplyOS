@@ -7,7 +7,7 @@ public class ThemeManager {
 
     private final Color LIGHT_BG = new Color(240, 240, 240);
     private final Color LIGHT_TASKBAR = new Color(220, 220, 220);
-    private final Color LIGHT_WINDOW = ne Color(255, 255, 255);
+    private final Color LIGHT_WINDOW = new Color(255, 255, 255);
     private final Color LIGHT_TITLEBAR = new Color(200, 200, 200);
     private final Color LIGHT_TEXT = new Color(30, 30, 30);
     private final Color LIGHT_BORDER = new Color(180, 180, 180);
@@ -45,7 +45,7 @@ public class ThemeManager {
         return isDark() ? DARK_TITLEBAR : LIGHT_TITLEBAR;
     }
     public Color getTextColor(){
-        return isDark() ? DARK_BORDER : LIGHT_BORDER;
+        return isDark() ? DARK_TEXT : LIGHT_BORDER;
     }
     public Color getBorderColor(){
         return isDark() ? DARK_BORDER : LIGHT_BORDER;

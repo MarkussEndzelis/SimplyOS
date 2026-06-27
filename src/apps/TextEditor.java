@@ -115,7 +115,7 @@ public class TextEditor extends JPanel{
 
     private void writeFile(File file){
         try{
-            BufferedReader writer = new BufferedReader(new FileWriter(file));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(textArea.getText());
             writer.close();
             statusLabel.setText("  Saved: " + file.getName());

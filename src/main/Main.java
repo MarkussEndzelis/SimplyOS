@@ -1,12 +1,12 @@
 package main;
 
-import desktop.Dekstop;
+import desktop.Desktop;
 import javax.swing.*;
 
 public class Main {
     public static void main(String[] args){
         SwingUtilities.invokeLater(() -> {
-            Desktop desktop = new Dekstop();
+            Desktop desktop = new Desktop();
             desktop.launch();
         });
     }

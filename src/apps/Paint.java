@@ -45,7 +45,7 @@ public class Paint extends JPanel{
         JSlider sizeSlider = new JSlider(1, 40, 5);
         sizeSlider.setPreferredSize(new Dimension(80, 24));
         sizeSlider.setBackground(new Color(30, 30, 40));
-        sizeSlider.addChangeListener(e -> bushSize = sizeSlider.getValue());
+        sizeSlider.addChangeListener(e -> brushSize = sizeSlider.getValue());
         toolbar.add(sizeSlider);
 
         JButton eraser = new JButton("Eraser");
@@ -65,12 +65,12 @@ public class Paint extends JPanel{
             protected void paintComponent(Graphics g){
                 super.paintComponent(g);
                 if(canvas != null){
-                    ng.drawImage(canvas, 0, 0, null);
+                    g.drawImage(canvas, 0, 0, null);
                 }
             }
         };
 
-        canvasPanel.addComponentListener(new ComponentListener(){
+        canvasPanel.addComponentListener(new ComponentAdapter(){
             @Override
             public void componentResized(ComponentEvent e){
                 int w = canvasPanel.getWidth();
@@ -107,7 +107,7 @@ public class Paint extends JPanel{
                 }
                 g2d.setColor(erasing ? Color.WHITE : currentColor);
                 g2d.setStroke(new BasicStroke(brushSize, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
-                g2.drawLine(lastX, lastY, e.getX(), e.getY());
+                g2d.drawLine(lastX, lastY, e.getX(), e.getY());
                 lastX = e.getX();
                 lastY = e.getY();
                 canvasPanel.repaint();

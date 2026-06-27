@@ -2,14 +2,14 @@ package taskbar;
 
 import desktop.Desktop;
 import windows.WindowManager;
-import themes.Thememanager;
+import themes.ThemeManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class StartMenu extends JPanel{
-    private Dekstop desktop;
+    private Dekstop Desktop;
     private WindowManager windowManager;
     private ThemeManager themeManager;
 
@@ -21,12 +21,12 @@ public class StartMenu extends JPanel{
         setLayout(new BorderLayout());
         setBackground(themeManager.getTaskbarColor());
         setBorder(BorderFactory.createLineBorder(themeManager.getBorderColor(), 1));
-        setPrefferedSize(new Dimension(220, 320));
+        setPreferredSize(new Dimension(220, 320));
 
-        JLabel title = new JLabel("  SimplyOS", SwingCOnstants.LEFT);
+        JLabel title = new JLabel("  SimplyOS", SwingConstants.LEFT);
         title.setFont(new Font("Segoe UI", Font.BOLD, 16));
         title.setForeground(themeManager.getAccentColor());
-        title.setPrefferedSize(new Dimension(220, 45));
+        title.setPreferredSize(new Dimension(220, 45));
         title.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, themeManager.getBorderColor()));
 
         JPanel appsPanel = new JPanel();
@@ -46,7 +46,7 @@ public class StartMenu extends JPanel{
             btn.setFocusPainted(false);
             btn.setHorizontalAlignment(SwingConstants.LEFT);
             btn.setMaximumSize(new Dimension(220, 40));
-            btn.setPrefferedSize(new Dimension(220, 40));
+            btn.setPreferredSize(new Dimension(220, 40));
             btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             btn.addMouseListener(new MouseAdapter() {
                 public void mouseEntered(MouseEvent e){
@@ -70,8 +70,8 @@ public class StartMenu extends JPanel{
         powerBtn.setBackground(themeManager.getTaskbarColor());
         powerBtn.setBorderPainted(false);
         powerBtn.setFocusPainted(false);
-        powerbtn.setHorizontalAlignment(SwingConstants.LEFT);
-        powerBtn.setPrefferedSize(new Dimension(220, 40));
+        powerBtn.setHorizontalAlignment(SwingConstants.LEFT);
+        powerBtn.setPreferredSize(new Dimension(220, 40));
         powerBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         powerBtn.addActionListener(e -> System.exit(0));
 

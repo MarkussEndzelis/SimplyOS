@@ -15,7 +15,7 @@ public class Calculator extends JPanel{
     private boolean newInput = true;
 
     public Calculator(ThemeManager themeManager){
-        this.themeManage = themeManager;
+        this.themeManager = themeManager;
         setLayout(new BorderLayout());
         setBackground(themeManager.getWindowColor());
         setPreferredSize(new Dimension(280, 380));
@@ -27,7 +27,7 @@ public class Calculator extends JPanel{
         display.setBackground(themeManager.getWindowColor());
         display.setForeground(themeManager.getTextColor());
         display.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        display.setpreferredSize(new Dimension(0, 70));
+        display.setPreferredSize(new Dimension(0, 70));
 
         JPanel buttonsPanel = new JPanel(new GridLayout(5, 4, 4, 4));
         buttonsPanel.setBackground(themeManager.getWindowColor());
@@ -58,7 +58,7 @@ public class Calculator extends JPanel{
 
         if(text.equals("=")){
             btn.setBackground(themeManager.getAccentColor());
-            btn.setForeGround(Color.WHITE);
+            btn.setForeground(Color.WHITE);
         }else if(text.matches("[÷×-+]")){
             btn.setBackground(new Color(255, 149, 0));
             btn.setForeground(Color.WHITE);

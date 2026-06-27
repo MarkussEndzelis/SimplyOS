@@ -25,7 +25,7 @@ public class DesktopIcon extends JPanel {
 
         JLabel iconLabel = new JLabel(getIconChar(appName), SwingConstants.CENTER);
         iconLabel.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 28));
-        iconLabel.setPrefferedSize(new Dimension(80, 50));
+        iconLabel.setPreferredSize(new Dimension(80, 50));
 
         JLabel nameLabel = new JLabel(appName, SwingConstants.CENTER);
         nameLabel.setFont(new Font("Segoe UI", Font.PLAIN, 11));
@@ -36,14 +36,14 @@ public class DesktopIcon extends JPanel {
 
         addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
-                if(e.getClickedCount() == 2){
+                if(e.getClickCount() == 2){
                     windowManager.openApp(appName, desktop.getDesktopPanel(), themeManager);
                 }
             }
 
             public void mouseEntered(MouseEvent e){
                 setOpaque(true);
-                setBackground(new COlor(255, 255, 255, 60));
+                setBackground(new Color(255, 255, 255, 60));
                 repaint();
             }
 

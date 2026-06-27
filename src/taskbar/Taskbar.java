@@ -21,7 +21,7 @@ public class Taskbar extends JPanel{
         this.windowManager = windowManager;
         this.themeManager = themeManager;
 
-        setPrefferedSize(new Dimension(0, 45));
+        setPreferredSize(new Dimension(0, 45));
         setBackground(themeManager.getTaskbarColor());
         setLayout(new BorderLayout());
 
@@ -32,7 +32,7 @@ public class Taskbar extends JPanel{
         startBtn.setBorderPainted(false);
         startBtn.setFocusPainted(false);
         startBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        startBtn.addActionLIstener(e -> toggleStartMenu());
+        startBtn.addActionListener(e -> toggleStartMenu());
 
         openAppsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 4, 6));
         openAppsPanel.setOpaque(false);
@@ -67,7 +67,7 @@ public class Taskbar extends JPanel{
         btn.setBackground(themeManager.getTaskbarColor().brighter());
         btn.setBorderPainted(false);
         btn.setFocusPainted(false);
-        btn.setPrefferedSize(new Dimension(110, 30));
+        btn.setPreferredSize(new Dimension(110, 30));
         openAppsPanel.add(btn);
         openAppsPanel.revalidate();
         openAppsPanel.repaint();

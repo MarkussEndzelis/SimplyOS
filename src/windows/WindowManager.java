@@ -1,0 +1,44 @@
+package windows;
+
+import themes.ThemeManager;
+import apps.*;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class WindowManager{
+    public void openApp(String appName, JPanel desktop, ThemeManager themeManager){
+        AppWindow window = null;
+
+        switch(appName){
+            case "File Explorer":
+                window = new AppWIndow("File Explorer", new apps.FileExplore(themeManager), desktop, themeManager);
+                break;
+            case "Text Editor":
+                window = new AppWindow("Text Editor", new apps.TextEditor(themeManager), desktop, themeManager);
+                break;
+            case "Calculator":
+                window = new AppWindow("Calculator", new apps.Calculator(themeManager), desktop, themeManager);
+                break;
+            case "Terminal":
+                window = new AppWindow("Terminal", new apps.Terminal(timeManager), desktop, themeManager);
+                break;
+            case "Paint":
+                window = new AppWindow("Paint", new apps.Paint(themeManager), desktop, themeManager);
+                break;
+            case "Settings":
+                window = new AppWindow("Settings", new apps.Settings(themeManager, desktop), desktop, themeManager);
+                break;
+        }
+
+        if(window != null){
+            int x = 50 + (int)(Math.random() * 200);
+            int y = 50 + (int)(Math.random() * 100);
+            window.setBounds(x, y, window.getAppWidth(), window.getAppHeight());
+            desktop.add(window);
+            desktop.setComponentZOrder(window, 0);
+            desktop.revalidate();
+            desktop.repaint();
+        }
+    }
+}

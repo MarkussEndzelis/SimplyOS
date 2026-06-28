@@ -33,6 +33,12 @@ public class WindowManager{
                 break;
             case "Minesweeper":
                 window = new AppWindow("Minesweeper", new apps.Minesweeper(themeManager), desktop, themeManager);
+                break;
+            case "Music Player":
+                apps.MusicPlayer player = new apps.MusicPlayer(themeManager);
+                window = new AppWindow("Music Player", new apps.MusicPlayer(themeManager), desktop, themeManager);
+                window.setOnClose(() -> player.cleanup());
+                break;
         }
 
         if(window != null){

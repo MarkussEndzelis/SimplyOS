@@ -35,6 +35,7 @@ public class DesktopIcon extends JPanel {
         };
         iconBox.setPreferredSize(new Dimension(60, 50));
         iconBox.setOpaque(false);
+        iconBox.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
 
         JLabel iconLabel = new JLabel(getIconChar(appName), SwingConstants.CENTER);
         iconLabel.setFont(new Font("Segoe UI Emoji", Font.BOLD, 20));

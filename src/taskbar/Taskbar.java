@@ -30,8 +30,8 @@ public class Taskbar extends JPanel{
         JButton startBtn = new JButton("Start");
         startBtn.setFont(new Font("Segoe UI", Font.BOLD, 12));
         startBtn.setPreferredSize(new Dimension(80, 48));
-        startBtn.setForeground(themeManager.getTextColor());
-        startBtn.setBackground(themeManager.getTaskbarColor());
+        startBtn.setForeground(Color.WHITE);
+        startBtn.setBackground(themeManager.getAccentColor());
         startBtn.setBorderPainted(false);
         startBtn.setFocusPainted(false);
         startBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

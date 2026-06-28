@@ -114,6 +114,7 @@ public class Paint extends JPanel{
             }
         });
 
+        canvasPanel.setBackground(Color.WHITE);
         add(toolbar, BorderLayout.NORTH);
         add(canvasPanel, BorderLayout.CENTER);
     }

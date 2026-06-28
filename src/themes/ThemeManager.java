@@ -45,7 +45,7 @@ public class ThemeManager {
         return isDark() ? DARK_TITLEBAR : LIGHT_TITLEBAR;
     }
     public Color getTextColor(){
-        return isDark() ? DARK_TEXT : LIGHT_BORDER;
+        return isDark() ? DARK_TEXT : LIGHT_TEXT;
     }
     public Color getBorderColor(){
         return isDark() ? DARK_BORDER : LIGHT_BORDER;

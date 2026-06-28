@@ -47,7 +47,7 @@ public class FileExplorer extends JPanel{
         quickAccess.setPreferredSize(new Dimension(130, 0));
         quickAccess.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, themeManager.getBorderColor()));
 
-        String[] quickDirs = {"🏠 Home", "🖥 Desktop", "📄 Documents", "⬇ Downloads", "🖼 Pictures"};
+        String[] quickDirs = {"Home", "Desktop", "Documents", "Downloads", "Pictures"};
         File[] quickPaths = {
             new File(System.getProperty("user.home")),
             new File(System.getProperty("user.home") + "/Desktop"),
@@ -80,7 +80,7 @@ public class FileExplorer extends JPanel{
                 if(e.getClickCount() == 2){
                     String selected = fileList.getSelectedValue();
                     if(selected != null){
-                        File f = new File(currentDir, selected.replace("📁 ", "").replace("📄 ", ""));
+                        File f = new File(currentDir, selected.replace("[DIR] ", ""));
                         if(f.isDirectory()){
                             loadDirectory(f);
                         }
@@ -126,7 +126,7 @@ public class FileExplorer extends JPanel{
         });
         for (File f : files){
             if(!f.isHidden()){
-                listModel.addElement(f.isDirectory() ? "📁 " + f.getName() : "📄 " + f.getName());
+                listModel.addElement(f.isDirectory() ? "[DIR] " + f.getName() :  f.getName());
             }
         }
     }

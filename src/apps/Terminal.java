@@ -44,6 +44,7 @@ public class Terminal extends JPanel{
         inputField.setCaretColor(new Color(0, 255, 0));
         inputField.setFont(new Font("Consolas", Font.PLAIN, 13));
         inputField.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        inputField.setOpaque(true);
         inputField.addActionListener(e -> handleCommand(inputField.getText()));
 
         inputPanel.add(prompt, BorderLayout.WEST);

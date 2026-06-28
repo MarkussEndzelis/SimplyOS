@@ -85,13 +85,13 @@ public class Settings extends JPanel{
         themeButtons.setBackground(themeManager.getWindowColor());
         themeButtons.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JButton lightBtn = new JButton("☀ Light");
+        JButton lightBtn = new JButton("Light");
         lightBtn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         lightBtn.setFocusPainted(false);
         lightBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         lightBtn.setPreferredSize(new Dimension(100, 36));
 
-        JButton darkBtn = new JButton("🌙 Dark");
+        JButton darkBtn = new JButton("Dark");
         darkBtn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         darkBtn.setFocusPainted(false);
         darkBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

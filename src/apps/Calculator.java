@@ -34,7 +34,7 @@ public class Calculator extends JPanel{
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
         String[] buttons = {
-            "C", "+/2", "%", "/",
+            "C", "+/-", "%", "/",
             "7", "8", "9", "*",
             "4", "5", "6", "-",
             "1", "2", "3", "+",

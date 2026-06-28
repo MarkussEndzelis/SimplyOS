@@ -116,12 +116,8 @@ public class FileExplorer extends JPanel{
             return;
         }
         java.util.Arrays.sort(files, (a, b) -> {
-            if(a.isDirectory() && !b.isDirectory()){
-                return -1;
-            }
-            if(!a.isDirectory() && !b.isDirectory()){
-                return 1;
-            }
+            if(a.isDirectory() && !b.isDirectory()) return -1;
+            if(!a.isDirectory() && b.isDirectory()) return 1;
             return a.getName().compareToIgnoreCase(b.getName());
         });
         for (File f : files){

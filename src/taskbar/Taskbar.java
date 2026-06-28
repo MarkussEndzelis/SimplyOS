@@ -81,8 +81,10 @@ public class Taskbar extends JPanel{
                 window.setVisible(false);
             }else{
                 window.setVisible(true);
-                window.getParent().setComponentZOrder(window, 0);
-                window.getParent().repaint();
+                if(window.getParent() != null){
+                    window.getParent().setComponentZOrder(window, 0);
+                    window.getParent().repaint();
+                }
             }
         });
         window.setOnClose(() -> {

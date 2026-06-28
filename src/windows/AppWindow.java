@@ -79,6 +79,14 @@ public class AppWindow extends JPanel{
         });
 
         add(titleBar, BorderLayout.NORTH);
+
+        addMouseListener(new MouseAdapter(){
+            public void mousePressed(MouseEvent e){
+                desktop.setComponentZOrder(AppWindow.this, 0);
+                desktop.repaint();
+            }
+        });
+
         add(content, BorderLayout.CENTER);
     }
 

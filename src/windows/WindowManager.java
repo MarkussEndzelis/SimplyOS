@@ -5,6 +5,7 @@ import apps.*;
 import taskbar.Taskbar;
 import javax.swing.*;
 import java.awt.*;
+import desktop.DesktopIcon;
 
 public class WindowManager{
     private Taskbar taskbar;
@@ -38,6 +39,12 @@ public class WindowManager{
             window.setBounds(x, y, window.getAppWidth(), window.getAppHeight());
             desktop.add(window);
             desktop.setComponentZOrder(window, 0);
+            for(int i = 0; i < desktop.getComponentCount(); i++){
+                if(desktop.getComponent(i) instanceof desktop.DesktopIcon){
+                    desktop.setComponentZOrder(desktop.getComponent(i), desktop.getComponentCount() - 1);
+                    break;
+                }
+            }
             desktop.revalidate();
             desktop.repaint();
 

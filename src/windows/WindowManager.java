@@ -31,6 +31,8 @@ public class WindowManager{
             case "Settings":
                 window = new AppWindow("Settings", new apps.Settings(themeManager, desktop), desktop, themeManager);
                 break;
+            case "Minesweeper":
+                window = new AppWindow("Minesweeper", new apps.Minesweeper(themeManager), desktop, themeManager);
         }
 
         if(window != null){

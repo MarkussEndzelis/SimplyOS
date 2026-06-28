@@ -36,7 +36,7 @@ public class StartMenu extends JPanel{
         appsPanel.setLayout(new BoxLayout(appsPanel, BoxLayout.Y_AXIS));
         appsPanel.setBackground(themeManager.getTaskbarColor());
 
-        String[] apps = {"File Explorer", "Text Editor", "Calculator", "Terminal", "Paint", "Settings"};
+        String[] apps = {"File Explorer", "Text Editor", "Calculator", "Terminal", "Paint", "Minesweeper","Settings"};
         String[] icons = {"", "", "", "", "", ""};
 
         for(int i = 0; i < apps.length; i++){

@@ -20,18 +20,25 @@ public class DesktopIcon extends JPanel {
         this.themeManager = themeManager;
 
         setLayout(new BorderLayout());
-        setOpaque(false);
+        setOpaque(true);
+        setBackground(new Color(70, 130, 180));
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
+        JPanel iconBox = new JPanel(new BorderLayout());
+        iconBox.setPreferredSize(new Dimension(60, 50));
+        iconBox.setBackground(getIconColor(appName));
+        iconBox.setOpaque(true);
+
         JLabel iconLabel = new JLabel(getIconChar(appName), SwingConstants.CENTER);
-        iconLabel.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 28));
-        iconLabel.setPreferredSize(new Dimension(80, 50));
+        iconLabel.setFont(new Font("Segoe UI Emoji", Font.BOLD, 20));
+        iconLabel.setForeground(Color.WHITE);
+        iconBox.add(iconLabel, BorderLayout.CENTER);
 
         JLabel nameLabel = new JLabel(appName, SwingConstants.CENTER);
-        nameLabel.setFont(new Font("Segoe UI", Font.PLAIN, 11));
-        nameLabel.setForeground(themeManager.getTextColor());
+        nameLabel.setFont(new Font("Segoe UI", Font.PLAIN, 10));
+        nameLabel.setForeground(Color.WHITE);
 
-        add(iconLabel, BorderLayout.CENTER);
+        add(iconBox, BorderLayout.CENTER);
         add(nameLabel, BorderLayout.SOUTH);
 
         addMouseListener(new MouseAdapter(){
@@ -42,13 +49,12 @@ public class DesktopIcon extends JPanel {
             }
 
             public void mouseEntered(MouseEvent e){
-                setOpaque(true);
-                setBackground(new Color(255, 255, 255, 60));
+                setBackground(new Color(100, 150, 200));
                 repaint();
             }
 
             public void mouseExited(MouseEvent e){
-                setOpaque(false);
+                setBackground(new Color(70, 130, 180));
                 repaint();
             }
         });
@@ -56,13 +62,25 @@ public class DesktopIcon extends JPanel {
     
     private String getIconChar(String appName){
         switch(appName){
-            case "File Explorer": return "📁";
-            case "Text Editor": return "📝";
-            case "Calculator": return "🧮";
-            case "Terminal": return "💻";
-            case "Paint": return "🎨";
-            case "Settings": return "⚙️";
-            default: return "📄";
+            case "File Explorer": return "F";
+            case "Text Editor": return "T";
+            case "Calculator": return "C";
+            case "Terminal": return ">";
+            case "Paint": return "P";
+            case "Settings": return "S";
+            default: return "?";
+        }
+    }
+
+    private Color getIconColor(String appName){
+        switch(appName){
+            case "File Explorer": return new Color(230, 160, 30);
+            case "Text Editor": return new Color(0, 120, 215);
+            case "Calculator": return new Color(16, 124, 16);
+            case "Terminal": return new Color(30, 30, 30);
+            case "Paint": return new Color(200, 50, 50);
+            case "Settings": return new Color(100, 100, 100);
+            default: return new Color(80, 80, 80);
         }
     }
 }

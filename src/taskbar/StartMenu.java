@@ -34,11 +34,11 @@ public class StartMenu extends JPanel{
         appsPanel.setBackground(themeManager.getTaskbarColor());
 
         String[] apps = {"File Explorer", "Text Editor", "Calculator", "Terminal", "Paint", "Settings"};
-        String[] icons = {"📁", "📝", "🧮", "💻", "🎨", "⚙️"};
+        String[] icons = {"", "", "", "", "", ""};
 
         for(int i = 0; i < apps.length; i++){
             final String appName = apps[i];
-            JButton btn = new JButton(icons[i] + " " + appName);
+            JButton btn = new JButton(appName);
             btn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
             btn.setForeground(themeManager.getTextColor());
             btn.setBackground(themeManager.getTaskbarColor());

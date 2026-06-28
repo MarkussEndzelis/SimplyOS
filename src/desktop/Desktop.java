@@ -54,7 +54,7 @@ public class Desktop extends JFrame {
             DesktopIcon icon = new DesktopIcon(app, this, windowManager, themeManager);
             icon.setBounds(x, y, 80, 80);
             desktopPanel.add(icon);
-            y += 100;
+            y += 110;
         }
     }
 

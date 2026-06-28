@@ -11,7 +11,7 @@ public class AppWindow extends JPanel{
     private JPanel content;
     private JPanel desktop;
     private ThemeManager themeManager;
-    private int appWidth = 600;
+    private int appWidth = 650;
     private int appHeight = 400;
     private Point dragStart;
     private boolean isMaximized = false;
@@ -38,9 +38,9 @@ public class AppWindow extends JPanel{
         JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT, 2, 4));
         buttons.setOpaque(false);
 
-        JButton minimizeBtn = createWindowButton("─", new Color(255, 189, 68));
-        JButton maximizeBtn = createWindowButton("□", new Color(0, 200, 80));
-        JButton closeBtn = createWindowButton("✕", new Color(220, 60, 60));
+        JButton minimizeBtn = createWindowButton("-", new Color(255, 189, 68));
+        JButton maximizeBtn = createWindowButton("[]", new Color(0, 200, 80));
+        JButton closeBtn = createWindowButton("X", new Color(220, 60, 60));
 
         minimizeBtn.addActionListener(e -> setVisible(false));
         maximizeBtn.addActionListener(e -> toggleMaximize());

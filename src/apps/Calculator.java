@@ -34,11 +34,11 @@ public class Calculator extends JPanel{
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
 
         String[] buttons = {
-            "C", "±", "%", "÷",
-            "7", "8", "9", "×",
+            "C", "+/2", "%", "/",
+            "7", "8", "9", "*",
             "4", "5", "6", "-",
             "1", "2", "3", "+",
-            "0", ".", "⌫", "="
+            "0", ".", "DEL", "="
         };
 
         for(String btn : buttons){
@@ -59,10 +59,10 @@ public class Calculator extends JPanel{
         if(text.equals("=")){
             btn.setBackground(themeManager.getAccentColor());
             btn.setForeground(Color.WHITE);
-        }else if(text.equals("÷") || text.equals("×") || text.equals("-") || text.equals("+")){
+        }else if(text.equals("/") || text.equals("*") || text.equals("-") || text.equals("+")){
             btn.setBackground(new Color(255, 149, 0));
             btn.setForeground(Color.WHITE);
-        }else if(text.equals("C") || text.equals("±") || text.equals("%") || text.equals("⌫")){
+        }else if(text.equals("C") || text.equals("+/-") || text.equals("%") || text.equals("DEL")){
             btn.setBackground(themeManager.getTitleBarColor());
             btn.setForeground(themeManager.getTextColor());
         }else{
@@ -82,13 +82,13 @@ public class Calculator extends JPanel{
                 newInput = true;
                 display.setText("0");
                 break;
-            case "⌫":
+            case "DEL":
                 if(currentInput.length() > 0){
                     currentInput = currentInput.substring(0, currentInput.length() - 1);
                     display.setText(currentInput.isEmpty() ? "0" : currentInput);
                 }
                 break;
-            case "±":
+            case "+/-":
                 if(!currentInput.isEmpty()){
                     double val = Double.parseDouble(currentInput) * -1;
                     currentInput = String.valueOf(val);
@@ -102,7 +102,7 @@ public class Calculator extends JPanel{
                     display.setText(currentInput);
                 }
                 break;
-            case "÷": case "×": case "-": case "+":
+            case "/": case "*": case "-": case "+":
                 if(!currentInput.isEmpty()){
                     firstNumber = Double.parseDouble(currentInput);
                     operator = text;
@@ -115,8 +115,8 @@ public class Calculator extends JPanel{
                     double secondNumber = Double.parseDouble(currentInput);
                     double result = 0;
                     switch(operator){
-                        case "÷": result = firstNumber / secondNumber; break;
-                        case "×": result = firstNumber * secondNumber; break;
+                        case "/": result = firstNumber / secondNumber; break;
+                        case "*": result = firstNumber * secondNumber; break;
                         case "-": result = firstNumber - secondNumber; break;
                         case "+": result = firstNumber + secondNumber; break;
                     }

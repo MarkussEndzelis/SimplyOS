@@ -12,7 +12,7 @@ public class WindowManager{
 
         switch(appName){
             case "File Explorer":
-                window = new AppWIndow("File Explorer", new apps.FileExplorer(themeManager), desktop, themeManager);
+                window = new AppWindow("File Explorer", new apps.FileExplorer(themeManager), desktop, themeManager);
                 break;
             case "Text Editor":
                 window = new AppWindow("Text Editor", new apps.TextEditor(themeManager), desktop, themeManager);
@@ -21,7 +21,7 @@ public class WindowManager{
                 window = new AppWindow("Calculator", new apps.Calculator(themeManager), desktop, themeManager);
                 break;
             case "Terminal":
-                window = new AppWindow("Terminal", new apps.Terminal(timeManager), desktop, themeManager);
+                window = new AppWindow("Terminal", new apps.Terminal(themeManager), desktop, themeManager);
                 break;
             case "Paint":
                 window = new AppWindow("Paint", new apps.Paint(themeManager), desktop, themeManager);

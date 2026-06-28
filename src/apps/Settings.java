@@ -1,7 +1,7 @@
 package apps;
 
 import themes.ThemeManager;
-import dekstop.Desktop;
+import desktop.Desktop;
 
 import javax.swing.*;
 import java.awt.*;
@@ -86,14 +86,17 @@ public class Settings extends JPanel{
         themeButtons.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JButton lightBtn = new JButton("☀ Light");
-        JButton darkbtn = new JButton("🌙 Dark");
+        lightBtn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lightBtn.setFocusPainted(false);
+        lightBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        lightBtn.setPreferredSize(new Dimension(100, 36));
 
-        for(JButton btn : new JButton[]{lightBtn, darkbtn}){
-            btn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-            btn.setFocusPainted(false);
-            btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            btn.setPreferredSize(new Dimension(100, 36));
-        }
+        JButton darkBtn = new JButton("🌙 Dark");
+        darkBtn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        darkBtn.setFocusPainted(false);
+        darkBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        darkBtn.setPreferredSize(new Dimension(100, 36));
+        
         
         lightBtn.addActionListener(e -> {
             themeManager.setTheme("light");

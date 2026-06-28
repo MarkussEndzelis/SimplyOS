@@ -28,7 +28,7 @@ public class Taskbar extends JPanel{
         JButton startBtn = new JButton("Start");
         startBtn.setFont(new Font("Segoe UI", Font.BOLD, 13));
         startBtn.setForeground(themeManager.getTextColor());
-        startbtn.setBackground(themeManager.getTaskbarColor());
+        startBtn.setBackground(themeManager.getTaskbarColor());
         startBtn.setBorderPainted(false);
         startBtn.setFocusPainted(false);
         startBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -52,7 +52,7 @@ public class Taskbar extends JPanel{
             startMenu.setVisible(false);
         }else{
             int x = 0;
-            int y = desktop.getHeight() - 45 - startmenu.getPreferredSize().height;
+            int y = desktop.getHeight() - 45 - startMenu.getPreferredSize().height;
             startMenu.setBounds(x, y, 220, 320);
             desktop.getDesktopPanel().add(startMenu);
             startMenu.setVisible(true);

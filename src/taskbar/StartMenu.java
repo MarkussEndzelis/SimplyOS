@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class StartMenu extends JPanel{
-    private Dekstop Desktop;
+    private Desktop desktop;
     private WindowManager windowManager;
     private ThemeManager themeManager;
 

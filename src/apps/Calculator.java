@@ -59,10 +59,10 @@ public class Calculator extends JPanel{
         if(text.equals("=")){
             btn.setBackground(themeManager.getAccentColor());
             btn.setForeground(Color.WHITE);
-        }else if(text.matches("[÷×-+]")){
+        }else if(text.equals("÷") || text.equals("×") || text.equals("-") || text.equals("+")){
             btn.setBackground(new Color(255, 149, 0));
             btn.setForeground(Color.WHITE);
-        }else if(text.matches("[C±%⌫]")){
+        }else if(text.equals("C") || text.equals("±") || text.equals("%") || text.equals("⌫")){
             btn.setBackground(themeManager.getTitleBarColor());
             btn.setForeground(themeManager.getTextColor());
         }else{

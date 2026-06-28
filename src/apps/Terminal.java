@@ -101,7 +101,7 @@ public class Terminal extends JPanel{
                 print("OS: " + System.getProperty("os.name"));
                 print("User: " + System.getProperty("user.name"));
                 print("Java: " + System.getProperty("java.version"));
-                print("Memory: " + Runtime.getRunTime().totalMemory() / 1024 / 1024 + "MB");
+                print("Memory: " + Runtime.getRuntime().totalMemory() / 1024 / 1024 + "MB");
                 break;
             default:
                 if(cmd.startsWith("cd ")){

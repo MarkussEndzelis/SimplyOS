@@ -2,11 +2,12 @@ package windows;
 
 import themes.ThemeManager;
 import apps.*;
-
+import taskbar.Taskbar;
 import javax.swing.*;
 import java.awt.*;
 
 public class WindowManager{
+    private Taskbar taskbar;
     public void openApp(String appName, JPanel desktop, ThemeManager themeManager){
         AppWindow window = null;
 
@@ -39,6 +40,13 @@ public class WindowManager{
             desktop.setComponentZOrder(window, 0);
             desktop.revalidate();
             desktop.repaint();
+
+            if(taskbar != null){
+                taskbar.addTaskbarButton(appName, window);
+            }
         }
+    }
+    public void setTaskbar(Taskbar taskbar){
+        this.taskbar = taskbar;
     }
 }

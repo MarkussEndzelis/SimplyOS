@@ -37,6 +37,7 @@ public class Desktop extends JFrame {
         });
 
         taskbar = new Taskbar(this, windowManager, themeManager);
+        windowManager.setTaskbar(taskbar);
 
         add(desktopPanel, BorderLayout.CENTER);
         add(taskbar, BorderLayout.SOUTH);

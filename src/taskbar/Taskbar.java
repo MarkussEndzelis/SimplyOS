@@ -3,6 +3,7 @@ package taskbar;
 import desktop.Desktop;
 import windows.WindowManager;
 import themes.ThemeManager;
+import windows.AppWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,14 +61,20 @@ public class Taskbar extends JPanel{
         }
     }
 
-    public void addTaskbarButton(String appName){
+    public void addTaskbarButton(String appName, AppWindow window){
         JButton btn = new JButton(appName);
         btn.setFont(new Font("Segoe UI", Font.PLAIN, 11));
-        btn.setForeground(themeManager.getTextColor());
-        btn.setBackground(themeManager.getTaskbarColor().brighter());
+        btn.setForeground(Color.WHITE);
+        btn.setBackground(themeManager.getAccentColor());
         btn.setBorderPainted(false);
         btn.setFocusPainted(false);
         btn.setPreferredSize(new Dimension(110, 30));
+        btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btn.addActionListener(e -> {
+            window.setVisible(true);
+            window.getParent().setComponentZOrder(window, 0);
+            window.getParent().repaint();
+        });
         openAppsPanel.add(btn);
         openAppsPanel.revalidate();
         openAppsPanel.repaint();

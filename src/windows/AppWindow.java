@@ -11,8 +11,8 @@ public class AppWindow extends JPanel{
     private JPanel content;
     private JPanel desktop;
     private ThemeManager themeManager;
-    private int appWidth = 650;
-    private int appHeight = 400;
+    private int appWidth = 700;
+    private int appHeight = 500;
     private Point dragStart;
     private boolean isMaximized = false;
     private Rectangle previousBounds;
@@ -79,6 +79,13 @@ public class AppWindow extends JPanel{
         });
 
         add(titleBar, BorderLayout.NORTH);
+
+        addMouseMotionListener(new MouseMotionAdapter(){
+            public void mouseMoved(MouseEvent e){
+                desktop.setComponentZOrder(AppWindow.this, 0);
+                desktop.repaint();
+            }
+        });
 
         addMouseListener(new MouseAdapter(){
             public void mousePressed(MouseEvent e){

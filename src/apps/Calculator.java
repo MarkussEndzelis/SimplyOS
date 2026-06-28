@@ -18,7 +18,7 @@ public class Calculator extends JPanel{
         this.themeManager = themeManager;
         setLayout(new BorderLayout());
         setBackground(themeManager.getWindowColor());
-        setPreferredSize(new Dimension(280, 380));
+        setPreferredSize(new Dimension(400, 460));
 
         display = new JTextField("0");
         display.setFont(new Font("Segoe UI", Font.PLAIN, 28));

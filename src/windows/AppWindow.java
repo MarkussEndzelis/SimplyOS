@@ -29,17 +29,17 @@ public class AppWindow extends JPanel{
 
         JPanel titleBar = new JPanel(new BorderLayout());
         titleBar.setBackground(themeManager.getTitleBarColor());
-        titleBar.setPreferredSize(new Dimension(0, 32));
+        titleBar.setPreferredSize(new Dimension(0, 36));
 
         JLabel titleLabel = new JLabel("  " + title);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 13));
         titleLabel.setForeground(themeManager.getTextColor());
 
-        JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT, 2, 4));
+        JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT, 4, 7));
         buttons.setOpaque(false);
 
-        JButton minimizeBtn = createWindowButton("-", new Color(255, 189, 68));
-        JButton maximizeBtn = createWindowButton("[]", new Color(0, 200, 80));
+        JButton minimizeBtn = createWindowButton("_", new Color(255, 189, 68));
+        JButton maximizeBtn = createWindowButton("O", new Color(0, 200, 80));
         JButton closeBtn = createWindowButton("X", new Color(220, 60, 60));
 
         minimizeBtn.addActionListener(e -> setVisible(false));
@@ -79,8 +79,8 @@ public class AppWindow extends JPanel{
 
     private JButton createWindowButton(String text, Color color){
         JButton btn = new JButton(text);
-        btn.setFont(new Font("Segoe UI", Font.BOLD, 11));
-        btn.setPreferredSize(new Dimension(24, 24));
+        btn.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        btn.setPreferredSize(new Dimension(44, 22));
         btn.setBackground(color);
         btn.setForeground(Color.WHITE);
         btn.setBorderPainted(false);

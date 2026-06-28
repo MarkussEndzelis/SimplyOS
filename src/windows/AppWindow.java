@@ -16,6 +16,7 @@ public class AppWindow extends JPanel{
     private Point dragStart;
     private boolean isMaximized = false;
     private Rectangle previousBounds;
+    private Runnable onClose;
 
     public AppWindow(String title, JPanel content, JPanel desktop, ThemeManager themeManager){
         this.title = title;
@@ -46,7 +47,11 @@ public class AppWindow extends JPanel{
         maximizeBtn.addActionListener(e -> toggleMaximize());
         closeBtn.addActionListener(e -> {
             desktop.remove(this);
+            desktop.revalidate();
             desktop.repaint();
+            if(onClose != null){
+                onClose.run();
+            }
         });
 
         buttons.add(minimizeBtn);
@@ -106,5 +111,9 @@ public class AppWindow extends JPanel{
     }
     public int getAppHeight(){
         return appHeight;
+    }
+
+    public void setOnClose(Runnable onClose){
+        this.onClose = onClose;
     }
 }

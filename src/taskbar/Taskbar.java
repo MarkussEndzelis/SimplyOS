@@ -71,9 +71,24 @@ public class Taskbar extends JPanel{
         btn.setPreferredSize(new Dimension(110, 30));
         btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btn.addActionListener(e -> {
-            window.setVisible(true);
-            window.getParent().setComponentZOrder(window, 0);
-            window.getParent().repaint();
+            if(window.getParent() == null){
+                openAppsPanel.remove(btn);
+                openAppsPanel.revalidate();
+                openAppsPanel.repaint();
+                return;
+            }
+            if(window.isVisible()){
+                window.setVisible(false);
+            }else{
+                window.setVisible(true);
+                window.getParent().setComponentZOrder(window, 0);
+                window.getParent().repaint();
+            }
+        });
+        window.setOnClose(() -> {
+            openAppsPanel.remove(btn);
+            openAppsPanel.revalidate();
+            openAppsPanel.repaint();
         });
         openAppsPanel.add(btn);
         openAppsPanel.revalidate();

@@ -22,12 +22,14 @@ public class Taskbar extends JPanel{
         this.windowManager = windowManager;
         this.themeManager = themeManager;
 
-        setPreferredSize(new Dimension(0, 45));
+        setPreferredSize(new Dimension(0, 48));
+        setBorder(BorderFactory.createMatteBorder(1, 0, 0,  0, themeManager.getBorderColor()));
         setBackground(themeManager.getTaskbarColor());
         setLayout(new BorderLayout());
 
         JButton startBtn = new JButton("Start");
-        startBtn.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        startBtn.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        startBtn.setPreferredSize(new Dimension(80, 48));
         startBtn.setForeground(themeManager.getTextColor());
         startBtn.setBackground(themeManager.getTaskbarColor());
         startBtn.setBorderPainted(false);

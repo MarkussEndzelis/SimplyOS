@@ -27,13 +27,15 @@ public class AppWindow extends JPanel{
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createLineBorder(themeManager.getBorderColor(), 1));
         setBackground(themeManager.getWindowColor());
+        setBackground(themeManager.getWindowColor());
 
         JPanel titleBar = new JPanel(new BorderLayout());
         titleBar.setBackground(themeManager.getTitleBarColor());
-        titleBar.setPreferredSize(new Dimension(0, 36));
+        titleBar.setPreferredSize(new Dimension(0, 40));
+        titleBar.setBorder(BorderFactory.createEmptyBorder(0, 12, 0, 6));
 
         JLabel titleLabel = new JLabel("  " + title);
-        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        titleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         titleLabel.setForeground(themeManager.getTextColor());
 
         JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT, 4, 7));

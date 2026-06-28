@@ -3,6 +3,7 @@ package desktop;
 import taskbar.Taskbar;
 import windows.WindowManager;
 import themes.ThemeManager;
+import java.awt.GradientPaint;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,8 +26,19 @@ public class Desktop extends JFrame {
     }
 
     public void launch(){
-        desktopPanel = new JPanel(null);
-        desktopPanel.setBackground(themeManager.getWallpaperColor());
+    desktopPanel = new JPanel(null){
+        @Override
+        protected void paintComponent(Graphics g){
+            super.paintComponent(g);
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+            Color c1 = themeManager.getWallpaperColor();
+            Color c2 = c1.darker();
+            GradientPaint gp = new GradientPaint(0, 0, c1, getWidth(), getHeight(), c2);
+            g2d.setPaint(gp);
+            g2d.fillRect(0, 0, getWidth(), getHeight());
+        }
+        };
 
         desktopPanel.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e){

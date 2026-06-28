@@ -12,7 +12,7 @@ public class ThemeManager {
     private final Color LIGHT_TEXT = new Color(30, 30, 30);
     private final Color LIGHT_BORDER = new Color(180, 180, 180);
     private final Color LIGHT_ACCENT = new Color(0, 120, 215);
-    private final Color LIGHT_WALLPAPER = new Color(70, 130, 180);
+    private final Color LIGHT_WALLPAPER = new Color(30, 100, 180);
 
     private final Color DARK_BG = new Color(30, 30, 30);
     private final Color DARK_TASKBAR = new Color(20, 20, 20);
@@ -21,7 +21,7 @@ public class ThemeManager {
     private final Color DARK_TEXT = new Color(240, 240, 240);
     private final Color DARK_BORDER = new Color(70, 70, 70);
     private final Color DARK_ACCENT = new Color(0, 150, 255);
-    private final Color DARK_WALLPAPER = new Color(20, 30, 50);
+    private final Color DARK_WALLPAPER = new Color(15, 20, 40);
 
     public void setTheme(String theme){
         this.currentTheme = theme;

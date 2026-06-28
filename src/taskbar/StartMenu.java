@@ -20,7 +20,10 @@ public class StartMenu extends JPanel{
 
         setLayout(new BorderLayout());
         setBackground(themeManager.getTaskbarColor());
-        setBorder(BorderFactory.createLineBorder(themeManager.getBorderColor(), 1));
+        setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(themeManager.getBorderColor(), 1),
+            BorderFactory.createEmptyBorder(4, 0, 4, 0)
+        ));
         setPreferredSize(new Dimension(220, 320));
 
         JLabel title = new JLabel("  SimplyOS", SwingConstants.LEFT);
@@ -45,8 +48,9 @@ public class StartMenu extends JPanel{
             btn.setBorderPainted(false);
             btn.setFocusPainted(false);
             btn.setHorizontalAlignment(SwingConstants.LEFT);
-            btn.setMaximumSize(new Dimension(220, 40));
-            btn.setPreferredSize(new Dimension(220, 40));
+            btn.setMaximumSize(new Dimension(220, 44));
+            btn.setPreferredSize(new Dimension(220, 44));
+            btn.setBorder(BorderFactory.createEmptyBorder(0, 16, 0, 0));
             btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             btn.addMouseListener(new MouseAdapter() {
                 public void mouseEntered(MouseEvent e){

@@ -33,13 +33,33 @@ public class Desktop extends JFrame {
             super.paintComponent(g);
             Graphics2D g2d = (Graphics2D) g;
             g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
             if(wallpaperImage != null){
                 g2d.drawImage(wallpaperImage, 0, 0, getWidth(), getHeight(), null);
             }else{
-                Color c1 = themeManager.getWallpaperColor();
-                Color c2 = c1.darker().darker();
-                GradientPaint gp = new GradientPaint(0, 0, c1, getWidth(), getHeight(), c2);
+                Color top = new Color(5, 10, 35);
+                Color bottom = new Color(20, 50, 100);
+                GradientPaint gp = new GradientPaint(0, 0, top, 0, getHeight(), bottom);
                 g2d.setPaint(gp);
+                g2d.fillRect(0, 0, getWidth(), getHeight());
+
+                g2d.setColor(new Color(255, 255, 255, 180));
+                java.util.Random rand = new java.util.Random(42);
+                for(int i = 0; i < 150; i++){
+                    int x = rand.nextInt(getWidth());
+                    int y = rand.nextInt(getHeight());
+                    int size = rand.nextInt(2) + 1;
+                    g2d.fillOval(x, y, size, size);
+                }
+                
+                java.awt.RadialGradientPaint glow = new java.awt.RadialGradientPaint(
+                    getWidth() / 2f, getHeight() / 2f,
+                    getWidth() / 2f,
+                    new float[]{0f, 1f},
+                    new Color[]{new Color(30, 80, 160, 60), new Color(0, 0, 0, 0)}
+                );
+                g2d.setPaint(glow);
                 g2d.fillRect(0, 0, getWidth(), getHeight());
             }
         }

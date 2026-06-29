@@ -21,7 +21,7 @@ public class DesktopIcon extends JPanel {
 
         setLayout(new BorderLayout());
         setOpaque(true);
-        setBackground(new Color(30, 100, 180));
+        setBackground(new Color(5, 10, 35));
         setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         JPanel iconBox = new JPanel(new BorderLayout()){
@@ -57,12 +57,12 @@ public class DesktopIcon extends JPanel {
             }
 
             public void mouseEntered(MouseEvent e){
-                setBackground(new Color(60, 130, 210));
+                setBackground(new Color(20, 40, 80));
                 repaint();
             }
 
             public void mouseExited(MouseEvent e){
-                setBackground(new Color(30, 100, 180));
+                setBackground(new Color(5, 10, 35));
                 repaint();
             }
         });

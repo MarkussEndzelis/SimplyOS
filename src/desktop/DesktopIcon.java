@@ -33,7 +33,7 @@ public class DesktopIcon extends JPanel {
                 g2.fillRoundRect(0, 0, getWidth(), getHeight(), 12, 12);
               }
         };
-        iconBox.setPreferredSize(new Dimension(60, 50));
+        iconBox.setPreferredSize(new Dimension(70, 60));
         iconBox.setOpaque(false);
         iconBox.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
 

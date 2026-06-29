@@ -17,7 +17,7 @@ public class Clock extends JLabel{
         this.themeManager = themeManager;
 
         setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        setForeground(themeManager.getTextColor());
+        setForeground(Color.WHITE);
         setHorizontalAlignment(SwingConstants.CENTER);
         setPreferredSize(new Dimension(90, 45));
 

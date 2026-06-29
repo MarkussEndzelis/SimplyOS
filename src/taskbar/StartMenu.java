@@ -19,7 +19,7 @@ public class StartMenu extends JPanel{
         this.themeManager = themeManager;
 
         setLayout(new BorderLayout());
-        setBackground(themeManager.getTaskbarColor());
+        setBackground(new Color(15, 20, 50));
         setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(themeManager.getBorderColor(), 1),
             BorderFactory.createEmptyBorder(4, 0, 4, 0)
@@ -43,8 +43,8 @@ public class StartMenu extends JPanel{
             final String appName = apps[i];
             JButton btn = new JButton(appName);
             btn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-            btn.setForeground(themeManager.getTextColor());
-            btn.setBackground(themeManager.getTaskbarColor());
+            btn.setForeground(Color.WHITE);
+            btn.setBackground(new Color(15, 20, 50));
             btn.setBorderPainted(false);
             btn.setFocusPainted(false);
             btn.setHorizontalAlignment(SwingConstants.LEFT);
@@ -58,8 +58,8 @@ public class StartMenu extends JPanel{
                     btn.setForeground(Color.WHITE);
                 }
                 public void mouseExited(MouseEvent e){
-                    btn.setBackground(themeManager.getTaskbarColor());
-                    btn.setForeground(themeManager.getTextColor());
+                    btn.setBackground(new Color(15, 20, 50));
+                    btn.setForeground(Color.WHITE);
                 }
             });
             btn.addActionListener(e -> {
@@ -71,7 +71,7 @@ public class StartMenu extends JPanel{
         JButton powerBtn = new JButton("Shut Down");
         powerBtn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         powerBtn.setForeground(new Color(220, 60, 60));
-        powerBtn.setBackground(themeManager.getTaskbarColor());
+        powerBtn.setBackground(new Color(15, 20, 50));
         powerBtn.setBorderPainted(false);
         powerBtn.setFocusPainted(false);
         powerBtn.setHorizontalAlignment(SwingConstants.LEFT);

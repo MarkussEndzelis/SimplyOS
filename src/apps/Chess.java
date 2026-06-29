@@ -17,7 +17,7 @@ public class Chess extends JPanel{
     private static final int PAWN = 1, ROOK = 2, KNIGHT = 3;
     private static final int BISHOP = 4, QUEEN = 5, KING = 6;
 
-    private static final String[] PIECE_CHARS = {"", "♟", "♜", "♞", "♝", "♛", "♚"};
+    private static final String[] PIECE_CHARS = {"", "P", "R", "N", "B", "Q", "K"};
 
     public Chess(ThemeManager themeManager){
         this.themeManager = themeManager;
@@ -116,9 +116,9 @@ public class Chess extends JPanel{
                     int piece = Math.abs(board[r][c]);
                     boolean isWhite = board[r][c] > 0;
                     JLabel lbl = new JLabel(PIECE_CHARS[piece], SwingConstants.CENTER);
-                    lbl.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 36));
-                    lbl.setForeground(isWhite ? Color.WHITE : new Color(30, 30, 30));
-                    lbl.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
+                    lbl.setFont(new Font("Segoe UI", Font.PLAIN, 22));
+                    lbl.setForeground(isWhite ? new Color(255, 255,255) : new Color(20, 20, 20));
+                    lbl.setBorder(BorderFactory.createEmptyBorder(0, 0, 0,  0));
                     cell.add(lbl, BorderLayout.CENTER);
                 }
 

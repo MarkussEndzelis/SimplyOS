@@ -9,6 +9,7 @@ import desktop.DesktopIcon;
 
 public class WindowManager{
     private Taskbar taskbar;
+    private desktop.Desktop desktopInstance;
     public void openApp(String appName, JPanel desktop, ThemeManager themeManager){
         AppWindow window = null;
 
@@ -29,7 +30,7 @@ public class WindowManager{
                 window = new AppWindow("Paint", new apps.Paint(themeManager), desktop, themeManager);
                 break;
             case "Settings":
-                window = new AppWindow("Settings", new apps.Settings(themeManager, desktop), desktop, themeManager);
+                window = new AppWindow("Settings", new apps.Settings(themeManager, desktop, desktopInstance), desktop, themeManager);
                 break;
             case "Minesweeper":
                 window = new AppWindow("Minesweeper", new apps.Minesweeper(themeManager), desktop, themeManager);
@@ -63,5 +64,8 @@ public class WindowManager{
     }
     public void setTaskbar(Taskbar taskbar){
         this.taskbar = taskbar;
+    }
+    public void setDesktop(desktop.Desktop d){
+        this.desktopInstance = d;
     }
 }

@@ -2,6 +2,7 @@ package apps;
 
 import themes.ThemeManager;
 import desktop.Desktop;
+import java.io.File;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,10 +11,12 @@ import java.awt.event.*;
 public class Settings extends JPanel{
     private ThemeManager themeManager;
     private JPanel desktop;
+    private desktop.Desktop desktopRef;
 
-    public Settings(ThemeManager themeManager, JPanel desktop){
+    public Settings(ThemeManager themeManager, JPanel desktop, desktop.Desktop desktopRef){
         this.themeManager = themeManager;
         this.desktop = desktop;
+        this.desktopRef = desktopRef;
 
         setLayout(new BorderLayout());
         setBackground(themeManager.getWindowColor());
@@ -115,6 +118,52 @@ public class Settings extends JPanel{
         panel.add(themeLabel);
         panel.add(Box.createVerticalStrut(8));
         panel.add(themeButtons);
+
+        panel.add(Box.createVerticalStrut(20));
+
+        JLabel wallpaperLabel = new JLabel("Wallpaper");
+        wallpaperLabel.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        wallpaperLabel.setForeground(themeManager.getTextColor());
+        wallpaperLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JPanel wallpaperButtons = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 0));
+        wallpaperButtons.setBackground(themeManager.getWindowColor());
+        wallpaperButtons.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JButton chooseWallpaperBtn = new JButton("Choose Image");
+        chooseWallpaperBtn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        chooseWallpaperBtn.setBackground(themeManager.getAccentColor());
+        chooseWallpaperBtn.setForeground(Color.WHITE);
+        chooseWallpaperBtn.setBorderPainted(false);
+        chooseWallpaperBtn.setFocusPainted(false);
+        chooseWallpaperBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        chooseWallpaperBtn.addActionListener(e -> {
+            JFileChooser chooser = new JFileChooser();
+            chooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter(
+               "Image files", "jpg", "jpeg", "png", "bmp", "gif" 
+            ));
+            if(chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+                File file = chooser.getSelectedFile();
+                Image img = new ImageIcon(file.getAbsolutePath()).getImage();
+                desktopRef.setWallpaperImage(img);
+            }
+        });
+
+        JButton resetWallpaperBtn = new JButton("Reset");
+        resetWallpaperBtn.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        resetWallpaperBtn.setBackground(themeManager.getTitleBarColor());
+        resetWallpaperBtn.setForeground(themeManager.getTextColor());
+        resetWallpaperBtn.setBorderPainted(false);
+        resetWallpaperBtn.setFocusPainted(false);
+        resetWallpaperBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        resetWallpaperBtn.addActionListener(e -> desktopRef.setWallpaperImage(null));
+
+        wallpaperButtons.add(chooseWallpaperBtn);
+        wallpaperButtons.add(resetWallpaperBtn);
+
+        panel.add(wallpaperLabel);
+        panel.add(Box.createVerticalStrut(8));
+        panel.add(wallpaperButtons);
 
         return panel;
     }

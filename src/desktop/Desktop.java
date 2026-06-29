@@ -14,6 +14,7 @@ public class Desktop extends JFrame {
     private Taskbar taskbar;
     private WindowManager windowManager;
     private ThemeManager themeManager;
+    private Image wallpaperImage = null;
 
     public Desktop(){
         themeManager = new ThemeManager();
@@ -32,11 +33,15 @@ public class Desktop extends JFrame {
             super.paintComponent(g);
             Graphics2D g2d = (Graphics2D) g;
             g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-            Color c1 = themeManager.getWallpaperColor();
-            Color c2 = c1.darker();
-            GradientPaint gp = new GradientPaint(0, 0, c1, getWidth(), getHeight(), c2);
-            g2d.setPaint(gp);
-            g2d.fillRect(0, 0, getWidth(), getHeight());
+            if(wallpaperImage != null){
+                g2d.drawImage(wallpaperImage, 0, 0, getWidth(), getHeight(), null);
+            }else{
+                Color c1 = themeManager.getWallpaperColor();
+                Color c2 = c1.darker().darker();
+                GradientPaint gp = new GradientPaint(0, 0, c1, getWidth(), getHeight(), c2);
+                g2d.setPaint(gp);
+                g2d.fillRect(0, 0, getWidth(), getHeight());
+            }
         }
         };
 
@@ -50,6 +55,7 @@ public class Desktop extends JFrame {
 
         taskbar = new Taskbar(this, windowManager, themeManager);
         windowManager.setTaskbar(taskbar);
+        windowManager.setDesktop(this);
 
         add(desktopPanel, BorderLayout.CENTER);
         add(taskbar, BorderLayout.SOUTH);
@@ -60,7 +66,7 @@ public class Desktop extends JFrame {
     }
 
     private void addDesktopIcons(){
-        String[] apps = {"File Explorer", "Text Editor", "Calculator", "Terminal", "Paint","Minesweeper", "Settings"};
+        String[] apps = {"File Explorer", "Text Editor", "Calculator", "Terminal", "Paint","Minesweeper", "Music Player", "Settings"};
         int x = 20;
         int y = 20;
         for(String app : apps){
@@ -80,6 +86,11 @@ public class Desktop extends JFrame {
         menu.add(refresh);
         menu.add(settings);
         menu.show(desktopPanel, x, y);
+    }
+    
+    public void setWallpaperImage(Image img){
+        this.wallpaperImage = img;
+        desktopPanel.repaint();
     }
 
     public JPanel getDesktopPanel(){

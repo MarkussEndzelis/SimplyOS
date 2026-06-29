@@ -49,6 +49,8 @@ public class WindowManager{
             case "Calendar":
                 window = new AppWindow("Calendar", new apps.Calendar(themeManager), desktop, themeManager);
                 break;
+            case "Chess":
+                window = new AppWindow("Chess", new apps.Chess(themeManager), desktop, themeManager);
         }
 
         if(window != null){

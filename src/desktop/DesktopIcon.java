@@ -81,6 +81,7 @@ public class DesktopIcon extends JPanel {
             case "Pong": return "P";
             case "Clock": return "C";
             case "Calendar": return "Cal";
+            case "Chess": return "Ch";
             default: return "?";
         }
     }
@@ -98,6 +99,7 @@ public class DesktopIcon extends JPanel {
             case "Pong": return new Color(200, 100, 0);
             case "Clock": return new Color(0, 160, 160);
             case "Calendar": return new Color(220, 80, 80);
+            case "Chess": return new Color(80, 60, 40);
             default: return new Color(80, 80, 80);
         }
     }

@@ -92,7 +92,7 @@ public class Desktop extends JFrame {
     }
 
     private void addDesktopIcons(){
-        String[] apps = {"File Explorer", "Text Editor", "Calculator", "Terminal", "Paint","Minesweeper", "Music Player", "Settings"};
+        String[] apps = {"File Explorer", "Text Editor", "Calculator", "Terminal", "Paint","Minesweeper", "Music Player", "Pong", "Settings"};
         int x = 20;
         int y = 20;
         for(String app : apps){

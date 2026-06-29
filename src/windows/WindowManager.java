@@ -40,6 +40,8 @@ public class WindowManager{
                 window = new AppWindow("Music Player", new apps.MusicPlayer(themeManager), desktop, themeManager);
                 window.setOnClose(() -> player.cleanup());
                 break;
+            case "Pong":
+                window = new AppWindow("Pong", new apps.Pong(themeManager), desktop, themeManager);
         }
 
         if(window != null){

@@ -60,6 +60,7 @@ public class Taskbar extends JPanel{
             int y = desktop.getHeight() - 45 - startMenu.getPreferredSize().height;
             startMenu.setBounds(x, y, 220, 320);
             desktop.getDesktopPanel().add(startMenu);
+            desktop.getDesktopPanel().setComponentZOrder(startMenu, 0);
             startMenu.setVisible(true);
             startMenu.repaint();
         }

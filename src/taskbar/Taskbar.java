@@ -39,7 +39,7 @@ public class Taskbar extends JPanel{
         startBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         startBtn.addActionListener(e -> toggleStartMenu());
 
-        openAppsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 4, 6));
+        openAppsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 4, 9));
         openAppsPanel.setOpaque(false);
 
         clock = new Clock(themeManager);
@@ -69,7 +69,8 @@ public class Taskbar extends JPanel{
         JButton btn = new JButton(appName);
         btn.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         btn.setForeground(Color.WHITE);
-        btn.setBackground(themeManager.getAccentColor());
+        btn.setBackground(new Color(0, 100, 180));
+        btn.setOpaque(true);
         btn.setBorderPainted(false);
         btn.setFocusPainted(false);
         btn.setPreferredSize(new Dimension(110, 30));
@@ -92,9 +93,15 @@ public class Taskbar extends JPanel{
             }
         });
         window.setOnClose(() -> {
-            openAppsPanel.remove(btn);
-            openAppsPanel.revalidate();
-            openAppsPanel.repaint();
+            SwingUtilities.invokeLater(() -> {
+                openAppsPanel.remove(btn);
+                openAppsPanel.revalidate();
+                openAppsPanel.repaint();
+                Taskbar.this.revalidate();
+                Taskbar.this.repaint();
+                getParent().revalidate();
+                getParent().repaint();
+            });
         });
         openAppsPanel.add(btn);
         openAppsPanel.revalidate();

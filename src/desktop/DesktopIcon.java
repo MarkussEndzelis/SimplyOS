@@ -79,6 +79,7 @@ public class DesktopIcon extends JPanel {
             case "Settings": return "S";
             case "Music Player": return "M";
             case "Pong": return "P";
+            case "Clock": return "C";
             default: return "?";
         }
     }
@@ -94,6 +95,7 @@ public class DesktopIcon extends JPanel {
             case "Minesweeper": return new Color(100, 180, 100);
             case "Music Player": return new Color(180, 50, 180);
             case "Pong": return new Color(200, 100, 0);
+            case "Clock": return new Color(0, 160, 160);
             default: return new Color(80, 80, 80);
         }
     }

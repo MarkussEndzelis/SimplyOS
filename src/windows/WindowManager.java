@@ -42,6 +42,10 @@ public class WindowManager{
                 break;
             case "Pong":
                 window = new AppWindow("Pong", new apps.Pong(themeManager), desktop, themeManager);
+                break;
+            case "Clock":
+                window = new AppWindow("Clock", new apps.ClockApp(themeManager), desktop, themeManager);
+                break;
         }
 
         if(window != null){

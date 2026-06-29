@@ -179,6 +179,11 @@ public class ClockApp extends JPanel{
                 swTimer.start();
                 swRunning = true;
                 startStopBtn.setText("Stop");
+                startStopBtn.setBackground(new Color(200, 60, 60));
+            }else{
+                swTimer.stop();
+                swRunning = false;
+                startStopBtn.setText("Start");
                 startStopBtn.setBackground(themeManager.getAccentColor());
             }
         });

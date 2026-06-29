@@ -39,7 +39,8 @@ public class Calendar extends JPanel{
             btn.setForeground(Color.WHITE);
             btn.setBorderPainted(false);
             btn.setFocusPainted(false);
-            btn.setPreferredSize(new Dimension(36, 30));
+            btn.setPreferredSize(new Dimension(44, 30));
+            btn.setMargin(new Insets(0, 0, 0, 0));
             btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         }
 

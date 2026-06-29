@@ -15,6 +15,7 @@ public class Desktop extends JFrame {
     private WindowManager windowManager;
     private ThemeManager themeManager;
     private Image wallpaperImage = null;
+    private DesktopPet pet;
 
     public Desktop(){
         themeManager = new ThemeManager();
@@ -81,6 +82,11 @@ public class Desktop extends JFrame {
         add(taskbar, BorderLayout.SOUTH);
 
         addDesktopIcons();
+
+        pet = new DesktopPet(desktopPanel);
+        pet.setBounds(200, 400, 120, 110);
+        desktopPanel.add(pet);
+        desktopPanel.setComponentZOrder(pet, 0);
 
         setVisible(true);
     }

@@ -1,6 +1,0 @@
-{
-    "java.project.referencedLibraries": [
-        "C:\\Users\\endze\\Documents\\javafx-sdk-17.0.19\\lib\\*.jar"
-    ],
-    "java.jdt.ls.vmargs": "--module-path C:\\Users\\endze\\Documents\\javafx-sdk-17.0.19\\lib --add-modules javafx.controls,javafx.fxml,javafx.web,javafx.swing"
-}

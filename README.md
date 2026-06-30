@@ -19,5 +19,5 @@ SimplyOS is a windows playable operating system with different apps and os featu
 If Windows SmartScreen blocks it, click - More info, and then - Run anyway
 
 ## Tech stack
-Java
-VS Code
+- Java
+- VS Code
